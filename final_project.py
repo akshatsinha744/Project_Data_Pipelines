@@ -12,7 +12,7 @@ from udacity.common import final_project_sql_statements
 default_args = {
     'owner': 'udacity',
     'depends_on_past': False,
-    'start_date': pendulum.datetime(2024, 1, 1, tz="UTC"),
+    'start_date': pendulum.now(),
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
     'catchup': False,
@@ -94,6 +94,7 @@ def final_project():
             {'sql': "SELECT COUNT(*) FROM users WHERE userid IS NULL", 'expected': 0},
             {'sql': "SELECT COUNT(*) FROM songs WHERE songid IS NULL", 'expected': 0}
         ]
+        tables=['songplays', 'users', 'songs', 'artists', 'time']
     )
 
     start_operator >> [stage_events_to_redshift, stage_songs_to_redshift]  

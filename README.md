@@ -50,9 +50,6 @@ The source data resides in **S3** and needs to be processed in Sparkify's data w
 ### Airflow DAGs 
 
 #### Operators 
-* `Begin_execution` & `Stop_execution`
-
-    Dummy operators representing DAG start and end points
 * `Create_tables`
 
     Create tables in Redshift
